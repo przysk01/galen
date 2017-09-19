@@ -33,6 +33,7 @@ import com.galenframework.suite.reader.Context;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
+import java.io.File;
 import java.util.*;
 
 import org.mozilla.javascript.*;
@@ -415,7 +416,7 @@ public class PageSpecHandler implements VarsParserJsFunctions {
 
     public String getFullPathToResource(String scriptPath) {
         if (contextPath != null) {
-            return contextPath + "/" + scriptPath;
+            return contextPath + File.separator + scriptPath;
         } else {
             return scriptPath;
         }

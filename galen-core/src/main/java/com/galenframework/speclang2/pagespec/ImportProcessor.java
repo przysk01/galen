@@ -21,6 +21,7 @@ import com.galenframework.parser.StructNode;
 import com.galenframework.parser.StringCharReader;
 import com.galenframework.utils.GalenUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collections;
@@ -56,7 +57,8 @@ public class ImportProcessor {
         String fullPath = filePath;
 
         if (pageSpecHandler.getContextPath() != null) {
-            fullPath = pageSpecHandler.getContextPath() + "/" + filePath;
+            fullPath = pageSpecHandler.getContextPath() + File.separator + filePath;
+            fullPath = fullPath.replace("\\", "/");
         }
 
         String fileId = GalenUtils.calculateFileId(fullPath);
